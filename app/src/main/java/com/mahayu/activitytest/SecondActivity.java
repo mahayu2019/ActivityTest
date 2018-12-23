@@ -1,5 +1,6 @@
 package com.mahayu.activitytest;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -7,7 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class SecondActivity extends AppCompatActivity {
+public class SecondActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,14 +18,14 @@ public class SecondActivity extends AppCompatActivity {
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Intent intent = new Intent("com.thr");
-               // startActivity(intent);
+                Intent intent = new Intent("com.thr");
+                startActivity(intent);
 
                 //#4 对应FirstActivity的#4 回传数据
-                Intent intent=new Intent();
-                intent.putExtra("data return","返回数据");
-                setResult(RESULT_OK,intent);
-                finish();
+                // Intent intent=new Intent();
+                // intent.putExtra("data return","返回数据");
+                // setResult(RESULT_OK,intent);
+                // finish();
             }
         });
 
@@ -37,9 +38,16 @@ public class SecondActivity extends AppCompatActivity {
 
     @Override  //按返回键时保证同样返回数据
     public void onBackPressed() {
-        Intent intent=new Intent();
-        intent.putExtra("data return","返回数据");
-        setResult(RESULT_OK,intent);
+        Intent intent = new Intent();
+        intent.putExtra("data return", "返回数据");
+        setResult(RESULT_OK, intent);
         finish();
+    }
+
+    public static void actionStart(Context context, String data1, String data2) {
+        Intent intent = new Intent(context, SecondActivity.class);
+        intent.putExtra("pam1", data1);
+        intent.putExtra("pam2", data2);
+        context.startActivity(intent);
     }
 }

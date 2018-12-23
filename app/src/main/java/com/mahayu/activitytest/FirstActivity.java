@@ -11,7 +11,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class FirstActivity extends AppCompatActivity {
+public class FirstActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,22 +27,24 @@ public class FirstActivity extends AppCompatActivity {
 
                 //#2
                 //Intent(译:意图)参数:(上下文对象,目标对象)
-                //Intent intent = new Intent(FirstActivity.this, SecondActivity.class);
+                // Intent intent = new Intent(FirstActivity.this, SecondActivity.class);
                 // startActivity(intent);//启动意图
-                // Intent intent=new Intent("fact.sec");//意图目标参照androidManifest的intent-filter
-                //startActivity(intent);
+                // Intent intent = new Intent("fact.sec");//意图目标参照androidManifest的intent-filter
+                // startActivity(intent);
 
                 //#3
                 //String data = "传递数据";
                 //指定从当前活动传递到指定活动
-                //Intent intent = new Intent(FirstActivity.this, TherdActivity.class);
+                //Intent intent = new Intent(FirstActivity.this, ThirdActivity.class);
                 // intent.putExtra("extra_data", data);
                 // startActivity(intent);
 
                 //#4 数据回传
-                Intent intent = new Intent(FirstActivity.this, SecondActivity.class);
-                startActivityForResult(intent, 1);
+                //Intent intent = new Intent(FirstActivity.this, SecondActivity.class);
+                // startActivityForResult(intent, 1);
 
+                //#5
+                SecondActivity.actionStart(FirstActivity.this, "data1", "data2");
             }
         });
     }

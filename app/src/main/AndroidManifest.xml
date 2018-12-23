@@ -25,7 +25,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".TherdActivity">
+        <activity android:name=".ThirdActivity">
             <intent-filter>
                 <action android:name="com.thr" />
                 <category android:name="android.intent.category.DEFAULT" />
